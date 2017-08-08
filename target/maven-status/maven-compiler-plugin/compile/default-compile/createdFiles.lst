@@ -1,0 +1,10 @@
+edu\mum\domain\Artist.class
+edu\mum\domain\UserInfo.class
+edu\mum\domain\Season.class
+edu\mum\domain\web\MainController.class
+edu\mum\domain\Serie.class
+edu\mum\domain\Episode.class
+edu\mum\domain\Genre.class
+edu\mum\domain\SerieCast.class
+.netbeans_automatic_build
+edu\mum\domain\Comment.class
