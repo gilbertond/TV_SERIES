@@ -55,14 +55,14 @@ public class Season implements Serializable {
     private Date dateaired;
 
     @OneToMany(mappedBy = "episode", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
-    private final List<Cast> casts;
+    private final List<SerieCast> casts;
 
     public Season() {
         this.episodes = new ArrayList<>();
         this.casts = new ArrayList<>();
     }
 
-    public Season(Integer seasonnumber, List<Episode> episodes, Serie serie, String description, Date dateaired, List<Cast> casts) {
+    public Season(Integer seasonnumber, List<Episode> episodes, Serie serie, String description, Date dateaired, List<SerieCast> casts) {
         this.seasonnumber = seasonnumber;
         this.episodes = new ArrayList<>();
         this.episodes.addAll(episodes);
@@ -77,11 +77,11 @@ public class Season implements Serializable {
         return this.casts.size();
     }
 
-    public void addCast(Cast cast) {
+    public void addCast(SerieCast cast) {
         this.casts.add(getCastsCount(), cast);
     }
 
-    public void addCast(List<Cast> casts) {
+    public void addCast(List<SerieCast> casts) {
         this.casts.addAll(getCastsCount(), casts);
     }
 
@@ -141,7 +141,7 @@ public class Season implements Serializable {
         this.dateaired = (Date) dateaired.clone();
     }
 
-    public List<Cast> getCasts() {
+    public List<SerieCast> getCasts() {
         return Collections.unmodifiableList(casts);
     }
 

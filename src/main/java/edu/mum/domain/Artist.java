@@ -17,6 +17,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -43,6 +44,17 @@ public class Artist implements Serializable {
     @Column(name = "biography")
     private String biography;
 
+    @OneToOne(mappedBy = "artist")
+    private SerieCast Cast;
+
+    public SerieCast getCast() {
+        return Cast;
+    }
+
+    public void setCast(SerieCast Cast) {
+        this.Cast = Cast;
+    }
+        
     @Lob
     @Column(name = "picture")
     @ElementCollection
