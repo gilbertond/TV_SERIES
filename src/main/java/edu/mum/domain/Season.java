@@ -40,8 +40,8 @@ public class Season implements Serializable {
     @Column(name = "seasonnumber")
     private Integer seasonnumber;
 
-    @OneToMany(mappedBy = "episode")
-    private List<Episode> episodes;
+//    @OneToMany(mappedBy = "season")
+//    private List<Episode> episodes;
 
     @ManyToOne
     @JoinColumn(name = "serie")
@@ -58,14 +58,14 @@ public class Season implements Serializable {
     private final List<SerieCast> casts;
 
     public Season() {
-        this.episodes = new ArrayList<>();
+//        this.episodes = new ArrayList<>();
         this.casts = new ArrayList<>();
     }
 
     public Season(Integer seasonnumber, List<Episode> episodes, Serie serie, String description, Date dateaired, List<SerieCast> casts) {
         this.seasonnumber = seasonnumber;
-        this.episodes = new ArrayList<>();
-        this.episodes.addAll(episodes);
+//        this.episodes = new ArrayList<>();
+//        this.episodes.addAll(episodes);
         this.serie = serie;
         this.description = description;
         this.dateaired = dateaired;
@@ -85,17 +85,17 @@ public class Season implements Serializable {
         this.casts.addAll(getCastsCount(), casts);
     }
 
-    public int getEpisodesCount() {
-        return this.episodes.size();
-    }
-
-    public void addEpisode(Episode episode) {
-        this.episodes.add(getEpisodesCount(), episode);
-    }
-
-    public void addEpisode(List<Episode> episodes) {
-        this.episodes.addAll(getEpisodesCount(), episodes);
-    }
+//    public int getEpisodesCount() {
+//        return this.episodes.size();
+//    }
+//
+//    public void addEpisode(Episode episode) {
+//        this.episodes.add(getEpisodesCount(), episode);
+//    }
+//
+//    public void addEpisode(List<Episode> episodes) {
+//        this.episodes.addAll(getEpisodesCount(), episodes);
+//    }
 
     public Integer getSeasonid() {
         return seasonid;
@@ -113,9 +113,9 @@ public class Season implements Serializable {
         this.seasonnumber = seasonnumber;
     }
 
-    public List<Episode> getEpisodes() {
-        return Collections.unmodifiableList(episodes);
-    }
+//    public List<Episode> getEpisodes() {
+//        return Collections.unmodifiableList(episodes);
+//    }
 
     public Serie getSerie() {
         return serie;
@@ -177,7 +177,7 @@ public class Season implements Serializable {
 
     @Override
     public String toString() {
-        return "Season{" + "seasonnumber=" + seasonnumber + ", episodes=" + episodes.size() + ", serie=" + serie
+        return "Season{" + "seasonnumber=" + seasonnumber + ", episodes=" /*+ episodes.size()*/ + ", serie=" + serie
                 + ", description=" + description + ", dateaired=" + dateaired + ", casts=" + casts.size() + '}';
     }
 }

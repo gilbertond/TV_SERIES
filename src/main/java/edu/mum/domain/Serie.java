@@ -56,10 +56,10 @@ public class Serie implements Serializable {
     @Column(name = "director")
     private String director;
 
-    @OneToMany(mappedBy = "serie", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(mappedBy = "serie", cascade = CascadeType.ALL)//, fetch = FetchType.EAGER, orphanRemoval = true)
     private List<SerieCast> serieCast;
 
-    @OneToMany(mappedBy = "serie", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(mappedBy = "serie", cascade = CascadeType.ALL)//, fetch = FetchType.EAGER, orphanRemoval = true)
     private List<Season> seasons;
 
     @Embedded

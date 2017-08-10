@@ -36,6 +36,10 @@ public class SerieCast implements Serializable{
     @JoinColumn(name = "serie")
     private Serie serie;
     
+    @ManyToOne
+    @JoinColumn(name = "episode")
+    private Episode episode;
+    
     @OneToOne
     @JoinColumn(name = "artist")
     private final Artist artist;
@@ -47,16 +51,25 @@ public class SerieCast implements Serializable{
         this.artist = new Artist();
     }
 
-    public SerieCast(String castname, Serie serie, Artist artist, String roledescription) {
+    public SerieCast(String castname, Serie serie, Artist artist, Episode episode, String roledescription) {
         this.castname = castname;
         this.serie = serie;
         this.artist = artist;
         this.roledescription = roledescription;
+        this.episode = episode;
     }
 
     public Integer getCastid() {
         return castid;
     }
+
+    public Episode getEpisode() {
+        return episode;
+    }
+
+    public void setEpisode(Episode episode) {
+        this.episode = episode;
+    }    
 
     public void setCastid(Integer castid) {
         this.castid = castid;
