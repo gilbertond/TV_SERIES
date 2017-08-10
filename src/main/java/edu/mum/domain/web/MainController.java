@@ -5,6 +5,7 @@
  */
 package edu.mum.domain.web;
 
+import java.util.Date;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,8 @@ public class MainController {
     @RequestMapping(value = "index.htm", method = RequestMethod.GET)
     public String getIndex(Model model){
         model.addAttribute("msg", "Hello index");
+        model.addAttribute("today", new Date());
+        System.out.println("***********************************");
         return "index";
     }
 }
